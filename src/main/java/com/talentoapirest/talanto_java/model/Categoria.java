@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Categoria {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -30,5 +31,9 @@ public class Categoria {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return id + "-" + nombre;
+    }
 }
-    

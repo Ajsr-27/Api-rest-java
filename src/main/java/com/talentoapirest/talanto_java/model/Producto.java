@@ -1,6 +1,7 @@
 package com.talentoapirest.talanto_java.model;
 
 import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,10 +9,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-
 @Entity
 public class Producto {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -23,22 +23,19 @@ public class Producto {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    //Atributos de la clase Producto
-   
-    
-    // Constructores
-    public Producto (String nombre, BigDecimal precio, int stock, Categoria categoria) {
+    // Constructor con parámetros
+    public Producto(String nombre, BigDecimal precio, int stock, Categoria categoria) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
         this.categoria = categoria;
     }
 
-    //Constructor vacio 
+    // Constructor vacío (obligatorio para JPA)
     public Producto() {
     }
 
-    // Getters y Setters para acceder y modificar los atributos de la clase Producto
+    // Getters y Setters
 
     public int getId() {
         return id;
@@ -80,14 +77,12 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    // Método toString para representar el objeto Producto como una cadena de texto
     @Override
     public String toString() {
         return "ID: " + id +
-         "|" + nombre +
-         "|" + precio +
-         "|" + stock +
-         "|" + categoria;
+                "|" + nombre +
+                "|" + precio +
+                "|" + stock +
+                "|" + categoria;
     }
 }
-

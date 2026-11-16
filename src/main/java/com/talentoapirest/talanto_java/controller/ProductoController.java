@@ -16,41 +16,42 @@ import org.springframework.web.bind.annotation.RestController;
 import com.talentoapirest.talanto_java.model.Producto;
 import com.talentoapirest.talanto_java.service.ProductoService;
 
-@RestController 
-@RequestMapping ("/productos")
+@RestController
+@RequestMapping("/productos")
 public class ProductoController {
-    
+
     private final ProductoService productoService;
-    
+
     public ProductoController(ProductoService productoService) {
         this.productoService = productoService;
     }
-    
-    @GetMapping 
-    public ResponseEntity<List<Producto>> listar (){
-        return ResponseEntity.ok(productoService.listarProductos()); //200
+
+    @GetMapping
+    public ResponseEntity<List<Producto>> listar() {
+        return ResponseEntity.ok(productoService.listarProductos()); // 200
     }
 
-    @GetMapping ("/{id}")
-    public ResponseEntity<Producto> buscarProducto (@PathVariable int id){
-        return ResponseEntity.ok(productoService.buscarProducto(id)); //200
+    @GetMapping("/{id}")
+    public ResponseEntity<Producto> buscarProducto(@PathVariable int id) {
+        return ResponseEntity.ok(productoService.buscarProducto(id)); // 200
     }
 
-    @PostMapping 
-    public ResponseEntity<Producto> crearProducto (@RequestBody Producto productoNuevo){
+    @PostMapping
+    public ResponseEntity<Producto> crearProducto(@RequestBody Producto productoNuevo) {
         Producto productoCreado = productoService.crearProducto(productoNuevo);
-        return ResponseEntity.status(HttpStatus.CREATED).body(productoCreado);  // 201
+        return ResponseEntity.status(HttpStatus.CREATED).body(productoCreado); // 201
     }
 
-    @PutMapping ("/{id}")
-    public ResponseEntity<Producto> actualizarProducto (@PathVariable int id, @RequestBody Producto productoActualizado){
-        return ResponseEntity.ok(productoService.actualizarProducto(id, productoActualizado)); //200
+    @PutMapping("/{id}")
+    public ResponseEntity<Producto> actualizarProducto(
+            @PathVariable int id,
+            @RequestBody Producto productoActualizado) {
+        return ResponseEntity.ok(productoService.actualizarProducto(id, productoActualizado)); // 200
     }
 
-    @DeleteMapping ("/{id}")
-    public ResponseEntity<Void> eliminarProducto (@PathVariable int id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarProducto(@PathVariable int id) {
         productoService.eliminarProducto(id);
-        return ResponseEntity.noContent().build(); //204
-    }   
-
+        return ResponseEntity.noContent().build(); // 204
+    }
 }
