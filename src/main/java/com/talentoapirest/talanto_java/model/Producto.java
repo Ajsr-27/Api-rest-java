@@ -1,5 +1,6 @@
 package com.talentoapirest.talanto_java.model;
 
+import java.math.BigDecimal;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +16,7 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
-    private double precio;
+    private BigDecimal precio;
     private int stock;
 
     @ManyToOne
@@ -26,7 +27,7 @@ public class Producto {
    
     
     // Constructores
-    public Producto (String nombre, double precio, int stock, Categoria categoria) {
+    public Producto (String nombre, BigDecimal precio, int stock, Categoria categoria) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
@@ -55,11 +56,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public double getPrecio() {
+    public BigDecimal getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(BigDecimal precio) {
         this.precio = precio;
     }
 
