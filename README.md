@@ -32,7 +32,7 @@ src/main/java/com/talentoapirest/talanto_java
 
 ## Configuración de la base de datos
 
-La conexión está definida en `src/main/resources/application.properties`:
+La conexión está definida en pero solo un ejemplo las variables de entorno estan en otro archivo que no esta cargado `src/main/resources/application.properties`:
 
 ```properties
 spring.application.name=talanto-java
@@ -111,6 +111,11 @@ Ruta base: `/productos`
 | 404 | Not Found: el producto o la categoría no existe |
 
 ## Ejemplos de uso
+
+## Pruebas
+
+Los endpoints fueron probados con Thunder Client. Las capturas de cada caso (creación, listado, búsqueda, actualización, eliminación y errores 400 y 404)
+ están en la carpeta [`pruebas/`](pruebas/).
 
 ### Crear un producto (POST `/productos`)
 
